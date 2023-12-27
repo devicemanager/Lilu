@@ -224,7 +224,7 @@ void DeviceInfo::grabDevicesFromPciRoot(IORegistryEntry *pciRoot) {
 				managementEngine = obj;
 			} else if (vendor == WIOKit::VendorID::Intel && managementEngine == nullptr && code == WIOKit::ClassCode::IMEI) {
 				// There can be many devices with IMEI class code.
-				// REF: https://github.com/acidanthera/bugtracker/issues/716
+				// REF: https://github.com/devicemanager/bugtracker/issues/716
 				DBGLOG("dev", "found IMEI device candidate %s", safeString(name));
 				managementEngine = obj;
 			} else if (code == WIOKit::ClassCode::PCIBridge) {
@@ -261,7 +261,7 @@ void DeviceInfo::grabDevicesFromPciRoot(IORegistryEntry *pciRoot) {
 
 					// AZAL audio devices cannot be descrete GPU devices.
 					// On several AMD platforms there is an IGPU, which makes AZAL be recognised as a descrete GPU/HDA pair.
-					// REF: https://github.com/acidanthera/Lilu/pull/65
+					// REF: https://github.com/devicemanager/Lilu/pull/65
 					if (((v.audio && strcmp(v.audio->getName(), "AZAL") != 0) || !v.audio) && v.video) {
 						DBGLOG_COND(v.audio, "dev", "marking audio device as HDAU at %s", safeString(v.audio->getName()));
 						if (!videoExternal.push_back(v))
@@ -520,10 +520,10 @@ void BaseDeviceInfo::updateModelInfo() {
 			bootloaderVendor = BootloaderVendor::Clover;
 			SYSLOG("dev", "WARN: found Clover bootloader");
 		} else if (entry->getProperty("REV")) {
-			bootloaderVendor = BootloaderVendor::Acidanthera;
-			DBGLOG("dev", "assuming Acidanthera bootloader");
+			bootloaderVendor = BootloaderVendor::devicemanager;
+			DBGLOG("dev", "assuming devicemanager bootloader");
 			// Note, OpenCore is mostly stealth. One can detect it via:
-			// - Acidanthera manufacturer (only if we decided to update SMBIOS, available much later).
+			// - devicemanager manufacturer (only if we decided to update SMBIOS, available much later).
 			// - opencore-version variable (only if we decided to expose it NVRAM)
 			// - "REV" key before it is deleted by VirtualSMC (only if we decided to update DataHub)
 		}

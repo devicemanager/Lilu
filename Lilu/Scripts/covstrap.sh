@@ -12,10 +12,10 @@
 #  to be later used with Lilu and plugins.
 #
 #  Latest version available at:
-#  https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/covstrap.sh
+#  https://raw.githubusercontent.com/devicemanager/Lilu/master/Lilu/Scripts/covstrap.sh
 #
 #  Example usage:
-#  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/covstrap.sh) && eval "$src" || exit 1
+#  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/devicemanager/Lilu/master/Lilu/Scripts/covstrap.sh) && eval "$src" || exit 1
 #
 
 PROJECT_PATH="$(pwd)"
@@ -45,7 +45,7 @@ for tool in "${TOOLS[@]}"; do
 done
 
 # Coverity compatibility tools
-COV_TOOLS_URL="https://raw.githubusercontent.com/acidanthera/ocbuild/master/coverity/"
+COV_TOOLS_URL="https://raw.githubusercontent.com/devicemanager/ocbuild/master/coverity/"
 COV_TOOLS=(
   "cov-cc"
   "cov-cxx"

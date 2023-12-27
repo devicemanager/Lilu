@@ -375,7 +375,7 @@ public:
 	 */
 	enum class BootloaderVendor {
 		Unknown,
-		Acidanthera,
+		devicemanager,
 		Clover
 	};
 

@@ -18,8 +18,8 @@
 #include <libkern/OSAtomic.h>
 #include <Availability.h>
 
-#ifndef __ACIDANTHERA_MAC_SDK
-#error "This kext SDK is unsupported. Download from https://github.com/acidanthera/MacKernelSDK"
+#ifndef __devicemanager_MAC_SDK
+#error "This kext SDK is unsupported. Download from https://github.com/devicemanager/MacKernelSDK"
 #endif
 
 class LiluAPI {

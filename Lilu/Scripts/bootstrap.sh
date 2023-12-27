@@ -13,13 +13,13 @@
 #  a compiled Lilu release will be bootstrapped in the working directory.
 #
 #  Latest version available at:
-#  https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh
+#  https://raw.githubusercontent.com/devicemanager/Lilu/master/Lilu/Scripts/bootstrap.sh
 #
 #  Example usage:
-#  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/acidanthera/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" || exit 1
+#  src=$(/usr/bin/curl -Lfs https://raw.githubusercontent.com/devicemanager/Lilu/master/Lilu/Scripts/bootstrap.sh) && eval "$src" || exit 1
 #
 
-REPO_PATH="acidanthera/Lilu"
+REPO_PATH="devicemanager/Lilu"
 SDK_PATH="Lilu.kext"
 SDK_CHECK_PATH="${SDK_PATH}/Contents/Resources/Headers/kern_api.hpp"
 
@@ -230,7 +230,7 @@ install_compiled_sdk() {
     return 1
   fi
 
-  "${GIT}" clone "https://github.com/acidanthera/MacKernelSDK" -b "master" --depth=1 || ret=$?
+  "${GIT}" clone "https://github.com/devicemanager/MacKernelSDK" -b "master" --depth=1 || ret=$?
   if [ $ret -ne 0 ]; then
     echo "ERROR: Failed to clone MacKernelSDK with code ${ret}!"
     return 1
@@ -238,7 +238,7 @@ install_compiled_sdk() {
 
   if [ -n "${ACID32}" ]; then
     echo "-> ACID32 specified, installing clang32..."
-    src=$("${CURL}" -Lfs https://raw.githubusercontent.com/acidanthera/ocbuild/master/clang32-bootstrap.sh) && eval "$src" || ret=$?
+    src=$("${CURL}" -Lfs https://raw.githubusercontent.com/devicemanager/ocbuild/master/clang32-bootstrap.sh) && eval "$src" || ret=$?
 
     if [ $ret -ne 0 ]; then
       echo "ERROR: Failed to install clang32 with code ${ret}!"
